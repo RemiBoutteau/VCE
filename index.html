@@ -1,0 +1,220 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>GT Vision guidée par les capteurs émergents – GdR IASIS</title>
+  <meta name="description" content="Groupe de travail du GdR IASIS à la frontière entre l’image et la robotique : caméras événementielles, plénoptiques, omnidirectionnelles, hyperspectrales et à temps de vol.">
+  <meta name="theme-color" content="#f7f6f2" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#0f1217" media="(prefers-color-scheme: dark)">
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="preload" href="assets/fonts/inter-latin-variable.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="assets/fonts/cardo-latin-400.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="assets/css/style.css">
+  <script src="assets/js/event-view.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#contenu">Aller au contenu</a>
+
+  <header class="site-header">
+    <div class="container">
+      <a class="site-title" href="index.html" rel="home">GT Vision guidée par les capteurs émergents</a>
+      <nav class="site-nav" aria-label="Navigation principale">
+        <ul>
+          <li><a href="index.html#motivation">Motivation</a></li>
+          <li><a href="index.html#capteurs">Capteurs</a></li>
+          <li><a href="index.html#objectifs">Objectifs</a></li>
+          <li><a href="index.html#actualites">Actualités</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="contenu">
+    <section class="hero">
+      <div class="container">
+        <div class="hero-grid">
+          <div>
+            <p class="label">Groupe de Travail du GdR IASIS</p>
+            <h1>Vision guidée par les capteurs émergents</h1>
+            <p class="hero-action"><a class="button" href="https://gdr-iasis.cnrs.fr/" target="_blank" rel="noopener">Site du GdR IASIS</a></p>
+          </div>
+          <figure class="event-view">
+            <canvas id="event-canvas" aria-hidden="true"></canvas>
+            <figcaption>Simulation d’une caméra événementielle : seuls les changements de luminosité sont captés, à la <span class="polarity-on">hausse</span> ou à la <span class="polarity-off">baisse</span>.</figcaption>
+          </figure>
+        </div>
+        <ul class="people" aria-label="Responsables du groupe de travail">
+          <li><strong>Guillaume Caron</strong><span>CNRS-AIST JRL / UPJV MIS</span></li>
+          <li><strong>Franck Ruffier</strong><span>CNRS-AMU ISM</span></li>
+          <li><strong>Rémi Boutteau</strong><span>Université de Rouen Normandie LITIS</span></li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="section" id="motivation">
+      <div class="container section-grid">
+        <h2>Motivation</h2>
+        <div class="prose">
+          <p class="lead">De nouveaux types de caméras comme les caméras à temps de vol, les caméras plénoptiques, les caméras omnidirectionnelles, les caméras événementielles, les caméras hyperspectrales temps-réel ont vu le jour.</p>
+          <p>Ces nouvelles caméras et les nouveaux usages qu’elles laissent entrevoir sont le fruit de progrès d’intégrations techniques et technologiques récents. L’usage de ces capteurs fait émerger de nombreuses questions en vision par ordinateur sur les outils et les méthodes associées.</p>
+          <p>En premier lieu, se pose le problème de la modélisation et de l’étalonnage. Ce thème a été profondément traité pour les caméras classiques, voire également les caméras omnidirectionnelles, avec des résultats significatifs, des outils performants et largement utilisés. Néanmoins, l’amélioration de ces modélisations géométriques et/ou photométriques, ainsi que pour le développement d’outils de mise en œuvre rapides, précis et robustes représentent autant de défis scientifiques. De même, la nature hétérogène des informations mesurées nécessite le développement de principes spécifiques pour l’étalonnage extrinsèque des caméras.</p>
+          <p>Du point de vue du traitement de l’information, de nombreuses pistes de recherche sont également à explorer pour l’extraction et la caractérisation de ces primitives, leur mise en correspondance à la fois par des approches basées modèles et des approches basées apprentissage automatique. Une autre question intéressante concerne les traitements précoces qu’il est possible voire souhaitable d’effectuer au plus proche du capteur. La collaboration entre capteurs interroge enfin sur l’usage de l’information d’une modalité pour optimiser le traitement d’une autre.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="capteurs">
+      <div class="container">
+        <h2>Capteurs émergents</h2>
+        <ul class="sensor-grid">
+          <li class="sensor">
+            <svg class="sensor-diagram" viewBox="0 0 320 200" role="img" aria-label="Schéma : une caméra émet une onde lumineuse vers la scène et reçoit son retour ; le décalage Δt entre les signaux émis et reçus donne la distance d égale à c fois Δt divisé par deux.">
+  <rect class="i-line" x="20" y="26" width="44" height="52" rx="3"/>
+  <rect class="i-line" x="64" y="38" width="8" height="28"/>
+  <text x="42" y="92" text-anchor="middle">caméra</text>
+  <rect class="i-solid" x="262" y="14" width="36" height="78" rx="3"/>
+  <text x="280" y="106" text-anchor="middle">scène</text>
+  <path class="i-on" d="M78 40L80 42.6L82 44.7L84 45.8L86 45.8L88 44.7L90 42.6L92 40L94 37.4L96 35.3L98 34.2L100 34.2L102 35.3L104 37.4L106 40L108 42.6L110 44.7L112 45.8L114 45.8L116 44.7L118 42.6L120 40L122 37.4L124 35.3L126 34.2L128 34.2L130 35.3L132 37.4L134 40L136 42.6L138 44.7L140 45.8L142 45.8L144 44.7L146 42.6L148 40L150 37.4L152 35.3L154 34.2L156 34.2L158 35.3L160 37.4L162 40L164 42.6L166 44.7L168 45.8L170 45.8L172 44.7L174 42.6L176 40L178 37.4L180 35.3L182 34.2L184 34.2L186 35.3L188 37.4L190 40L192 42.6L194 44.7L196 45.8L198 45.8L200 44.7L202 42.6L204 40L206 37.4L208 35.3L210 34.2L212 34.2L214 35.3L216 37.4L218 40L220 42.6L222 44.7L224 45.8L226 45.8L228 44.7L230 42.6L232 40L234 37.4L236 35.3L238 34.2L240 34.2L242 35.3L244 37.4L246 40"/>
+  <path class="i-on" d="M246 40L258 40M252.6 37.4L258 40L252.6 42.6"/>
+  <path class="i-off" d="M90 66L92 68.6L94 70.7L96 71.8L98 71.8L100 70.7L102 68.6L104 66L106 63.4L108 61.3L110 60.2L112 60.2L114 61.3L116 63.4L118 66L120 68.6L122 70.7L124 71.8L126 71.8L128 70.7L130 68.6L132 66L134 63.4L136 61.3L138 60.2L140 60.2L142 61.3L144 63.4L146 66L148 68.6L150 70.7L152 71.8L154 71.8L156 70.7L158 68.6L160 66L162 63.4L164 61.3L166 60.2L168 60.2L170 61.3L172 63.4L174 66L176 68.6L178 70.7L180 71.8L182 71.8L184 70.7L186 68.6L188 66L190 63.4L192 61.3L194 60.2L196 60.2L198 61.3L200 63.4L202 66L204 68.6L206 70.7L208 71.8L210 71.8L212 70.7L214 68.6L216 66L218 63.4L220 61.3L222 60.2L224 60.2L226 61.3L228 63.4L230 66L232 68.6L234 70.7L236 71.8L238 71.8L240 70.7L242 68.6L244 66L246 63.4L248 61.3L250 60.2L252 60.2L254 61.3L256 63.4"/>
+  <path class="i-off" d="M90 66L78 66M83.4 68.6L78 66L83.4 63.4"/>
+  <text x="20" y="132" >émis</text>
+  <path class="i-on" d="M56 138H90V118H130V138H300"/>
+  <text x="20" y="178" >reçu</text>
+  <path class="i-off" d="M56 184H130V164H170V184H300"/>
+  <path class="i-guide" d="M90 138V184M130 138V164"/>
+  <path class="i-thin" d="M92 176L128 176M122.6 173.4L128 176L122.6 178.6"/>
+  <text x="110" y="171" text-anchor="middle" class="i-strong">Δt</text>
+  <text x="300" y="158" text-anchor="end" class="i-strong">d = c · Δt / 2</text>
+            </svg>
+            <h3>Caméras à temps de vol</h3>
+            <p>Elles mesurent le temps que met la lumière émise à revenir de la scène, et en déduisent une profondeur en chaque pixel.</p>
+          </li>
+          <li class="sensor">
+            <svg class="sensor-diagram" viewBox="0 0 320 200" role="img" aria-label="Schéma : les rayons issus d’un point traversent l’objectif principal, convergent sur une microlentille, puis atteignent des pixels différents du capteur selon leur direction.">
+  <circle class="i-dot" cx="24" cy="95" r="3.5"/>
+  <path class="i-on" d="M24 95L110 55L220 95L262 101"/><path class="i-thin-strong" d="M24 95L110 95L220 95L262 95"/><path class="i-off" d="M24 95L110 135L220 95L262 89"/>
+  <ellipse class="i-lens" cx="110" cy="95" rx="8" ry="58"/>
+  <text x="110" y="172" text-anchor="middle">objectif principal</text>
+  <ellipse class="i-lens" cx="220" cy="59" rx="3" ry="9"/><ellipse class="i-lens" cx="220" cy="77" rx="3" ry="9"/><ellipse class="i-lens" cx="220" cy="95" rx="3" ry="9"/><ellipse class="i-lens" cx="220" cy="113" rx="3" ry="9"/><ellipse class="i-lens" cx="220" cy="131" rx="3" ry="9"/>
+  <text x="216" y="36" text-anchor="middle">microlentilles</text>
+  <rect class="i-line-thin" x="262" y="50" width="14" height="6"/><rect class="i-line-thin" x="262" y="56" width="14" height="6"/><rect class="i-line-thin" x="262" y="62" width="14" height="6"/><rect class="i-line-thin" x="262" y="68" width="14" height="6"/><rect class="i-line-thin" x="262" y="74" width="14" height="6"/><rect class="i-line-thin" x="262" y="80" width="14" height="6"/><rect class="i-fill-off" x="262" y="86" width="14" height="6"/><rect class="i-fill-ink" x="262" y="92" width="14" height="6"/><rect class="i-fill-on" x="262" y="98" width="14" height="6"/><rect class="i-line-thin" x="262" y="104" width="14" height="6"/><rect class="i-line-thin" x="262" y="110" width="14" height="6"/><rect class="i-line-thin" x="262" y="116" width="14" height="6"/><rect class="i-line-thin" x="262" y="122" width="14" height="6"/><rect class="i-line-thin" x="262" y="128" width="14" height="6"/><rect class="i-line-thin" x="262" y="134" width="14" height="6"/>
+  <text x="269" y="160" text-anchor="middle">capteur</text>
+  <text x="160" y="192" text-anchor="middle" class="i-strong">direction du rayon → position sous la microlentille</text>
+            </svg>
+            <h3>Caméras plénoptiques</h3>
+            <p>Une matrice de microlentilles devant le capteur enregistre aussi la direction des rayons, ce qui permet d’estimer la profondeur ou de refaire la mise au point après coup.</p>
+          </li>
+          <li class="sensor">
+            <svg class="sensor-diagram" viewBox="0 0 320 200" role="img" aria-label="Schéma : un miroir convexe placé au-dessus d’une caméra renvoie vers elle les rayons venant de toutes les directions, ce qui forme une image annulaire couvrant 360 degrés.">
+  <path class="i-on" d="M8 72L65 56L90 128M8 112L76 68L90 128"/>
+  <path class="i-off" d="M172 72L115 56L90 128M172 112L104 68L90 128"/>
+  <path class="i-lens" d="M48 44C70 46 82 72 90 80C98 72 110 46 132 44Z"/>
+  <text x="90" y="34" text-anchor="middle">miroir</text>
+  <rect class="i-line" x="83" y="128" width="14" height="8"/>
+  <rect class="i-line" x="72" y="136" width="36" height="28" rx="3"/>
+  <text x="90" y="180" text-anchor="middle">caméra</text>
+  <circle class="i-line-thin" cx="245" cy="90" r="58"/>
+  <circle class="i-line-thin" cx="245" cy="90" r="39"/>
+  <circle class="i-line-thin" cx="245" cy="90" r="20"/>
+  <path class="i-line-thin" d="M265 90L303 90M262.3 100L295.2 119M255 107.3L274 140.2M245 110L245 148M235 107.3L216 140.2M227.7 100L194.8 119M225 90L187 90M227.7 80L194.8 61M235 72.7L216 39.8M245 70L245 32M255 72.7L274 39.8M262.3 80L295.2 61"/>
+  <circle class="i-fill-on" cx="196" cy="90" r="4.5"/>
+  <circle class="i-fill-on" cx="215" cy="90" r="4.5"/>
+  <circle class="i-fill-off" cx="294" cy="90" r="4.5"/>
+  <circle class="i-fill-off" cx="275" cy="90" r="4.5"/>
+  <text x="245" y="94" text-anchor="middle" class="i-strong">360°</text>
+  <text x="245" y="170" text-anchor="middle">image annulaire</text>
+            </svg>
+            <h3>Caméras omnidirectionnelles</h3>
+            <p>Un miroir ou un objectif très grand angle offre en une seule image un champ de vision pouvant couvrir 360° autour de la caméra.</p>
+          </li>
+          <li class="sensor">
+            <svg class="sensor-diagram" viewBox="0 0 320 200" role="img" aria-label="Schéma : dans l’espace et le temps, un point en rotation produit une hélice continue d’événements bleus et rouges, là où une caméra classique ne fournit que quelques images à cadence fixe.">
+  <path class="i-frame" d="M39.2 23L101.6 49L101.6 153L39.2 127ZM99.7 23L162.1 49L162.1 153L99.7 127ZM160.2 23L222.6 49L222.6 153L160.2 127ZM220.6 23L283 49L283 153L220.6 127Z"/>
+  <path class="i-fill-on" d="M71 112.9h2.4v2.4h-2.4zM72.2 117.4h2.4v2.4h-2.4zM71.3 117.7h2.4v2.4h-2.4zM71.5 122.1h2.4v2.4h-2.4zM70.3 121.2h2.4v2.4h-2.4zM71 124.7h2.4v2.4h-2.4zM69.9 124.5h2.4v2.4h-2.4zM68.8 124h2.4v2.4h-2.4zM68.4 125.3h2.4v2.4h-2.4zM67.7 126h2.4v2.4h-2.4zM67.3 126.2h2.4v2.4h-2.4zM64.2 126.2h2.4v2.4h-2.4zM63.3 125.7h2.4v2.4h-2.4zM62.3 124.5h2.4v2.4h-2.4zM62.5 121.7h2.4v2.4h-2.4zM61 120.3h2.4v2.4h-2.4zM60.1 120.7h2.4v2.4h-2.4zM59.9 114.7h2.4v2.4h-2.4zM58 112.1h2.4v2.4h-2.4zM56.9 107.6h2.4v2.4h-2.4zM56.4 102.8h2.4v2.4h-2.4zM57.1 99.5h2.4v2.4h-2.4zM58.6 93.9h2.4v2.4h-2.4zM59.7 82.2h2.4v2.4h-2.4zM62.4 75.7h2.4v2.4h-2.4zM67.4 66.2h2.4v2.4h-2.4zM66.8 64.1h2.4v2.4h-2.4zM69.5 60h2.4v2.4h-2.4zM70.3 60.3h2.4v2.4h-2.4zM78.7 52.1h2.4v2.4h-2.4zM81.5 53.9h2.4v2.4h-2.4zM83.4 53.4h2.4v2.4h-2.4zM86.1 49.5h2.4v2.4h-2.4zM87.8 47.8h2.4v2.4h-2.4zM92.5 51.3h2.4v2.4h-2.4zM97.3 49.2h2.4v2.4h-2.4zM99.3 51h2.4v2.4h-2.4zM104.7 51.9h2.4v2.4h-2.4zM105.1 53.8h2.4v2.4h-2.4zM107.2 53.7h2.4v2.4h-2.4zM114.7 56.8h2.4v2.4h-2.4zM122.5 61.5h2.4v2.4h-2.4zM123.7 66.4h2.4v2.4h-2.4zM128.4 68.7h2.4v2.4h-2.4zM134.7 78.4h2.4v2.4h-2.4zM134.3 80.1h2.4v2.4h-2.4zM137.2 82h2.4v2.4h-2.4zM138.1 84.8h2.4v2.4h-2.4zM138.3 87.1h2.4v2.4h-2.4zM138.9 89.3h2.4v2.4h-2.4zM140.7 90.4h2.4v2.4h-2.4zM140.7 93.3h2.4v2.4h-2.4zM144.1 100.5h2.4v2.4h-2.4zM144.1 106.1h2.4v2.4h-2.4zM145.6 109.1h2.4v2.4h-2.4zM145.9 110.3h2.4v2.4h-2.4zM146.4 115h2.4v2.4h-2.4zM146.8 118.6h2.4v2.4h-2.4zM144.7 120.6h2.4v2.4h-2.4zM145.6 125h2.4v2.4h-2.4zM144.1 124.7h2.4v2.4h-2.4zM143.4 124.9h2.4v2.4h-2.4zM142.7 124.1h2.4v2.4h-2.4zM143 126.7h2.4v2.4h-2.4zM139.6 124.2h2.4v2.4h-2.4zM138.7 125.2h2.4v2.4h-2.4zM138.4 123.1h2.4v2.4h-2.4zM137.7 122.8h2.4v2.4h-2.4zM137.1 121.1h2.4v2.4h-2.4zM134.9 115.5h2.4v2.4h-2.4zM133.5 112.4h2.4v2.4h-2.4zM131.9 109.7h2.4v2.4h-2.4zM131.3 103.7h2.4v2.4h-2.4zM131.3 99.2h2.4v2.4h-2.4zM132.6 96.5h2.4v2.4h-2.4zM131.9 96.1h2.4v2.4h-2.4zM133.1 88.9h2.4v2.4h-2.4zM134.1 85.1h2.4v2.4h-2.4zM137.5 74.6h2.4v2.4h-2.4zM136.9 72.9h2.4v2.4h-2.4zM140.2 69.6h2.4v2.4h-2.4zM140.1 67.4h2.4v2.4h-2.4zM141.1 64.9h2.4v2.4h-2.4zM143.5 64.6h2.4v2.4h-2.4zM144.8 61.8h2.4v2.4h-2.4zM144.9 60.9h2.4v2.4h-2.4zM155.6 54.1h2.4v2.4h-2.4zM164 51.7h2.4v2.4h-2.4zM176.8 49.7h2.4v2.4h-2.4zM179.1 51.7h2.4v2.4h-2.4zM181.5 52.1h2.4v2.4h-2.4zM186.5 56.8h2.4v2.4h-2.4zM188.9 56h2.4v2.4h-2.4zM196.5 62.2h2.4v2.4h-2.4zM196.3 64.5h2.4v2.4h-2.4zM199.4 66.9h2.4v2.4h-2.4zM200.8 68.2h2.4v2.4h-2.4zM206.7 76.5h2.4v2.4h-2.4zM212 84.7h2.4v2.4h-2.4zM216.2 94.8h2.4v2.4h-2.4zM217.1 96.6h2.4v2.4h-2.4zM218.1 99.3h2.4v2.4h-2.4zM217.6 100.2h2.4v2.4h-2.4zM220.5 109.7h2.4v2.4h-2.4zM221.2 112.3h2.4v2.4h-2.4zM221 117.4h2.4v2.4h-2.4zM219.8 116.4h2.4v2.4h-2.4zM220.6 118.6h2.4v2.4h-2.4zM220.1 119.3h2.4v2.4h-2.4zM219.6 120.6h2.4v2.4h-2.4zM219.1 122.8h2.4v2.4h-2.4zM219.3 124.5h2.4v2.4h-2.4zM218.1 125h2.4v2.4h-2.4zM216.2 126.5h2.4v2.4h-2.4zM212.1 124.8h2.4v2.4h-2.4zM211.4 121.7h2.4v2.4h-2.4zM210.9 121.1h2.4v2.4h-2.4zM210.5 120.5h2.4v2.4h-2.4zM209 116.5h2.4v2.4h-2.4zM208.3 115.9h2.4v2.4h-2.4zM207.7 111.2h2.4v2.4h-2.4zM207.4 109.3h2.4v2.4h-2.4zM207.7 107.6h2.4v2.4h-2.4zM206.8 107.3h2.4v2.4h-2.4zM205.9 104.7h2.4v2.4h-2.4zM206.2 103.4h2.4v2.4h-2.4zM207.2 97h2.4v2.4h-2.4zM207.1 96.6h2.4v2.4h-2.4zM207.6 94.4h2.4v2.4h-2.4zM209 83.7h2.4v2.4h-2.4zM208.1 81.7h2.4v2.4h-2.4zM213 70.5h2.4v2.4h-2.4zM215.1 67.6h2.4v2.4h-2.4zM216.2 66.9h2.4v2.4h-2.4zM218.1 65.1h2.4v2.4h-2.4zM220.4 57.4h2.4v2.4h-2.4zM223 59.6h2.4v2.4h-2.4zM223.9 58.7h2.4v2.4h-2.4zM225.6 54.1h2.4v2.4h-2.4zM232 52.1h2.4v2.4h-2.4zM236.9 48.4h2.4v2.4h-2.4zM237.6 49.1h2.4v2.4h-2.4zM241.7 51.5h2.4v2.4h-2.4zM241.8 49.7h2.4v2.4h-2.4zM246.7 48.3h2.4v2.4h-2.4zM248.7 50.7h2.4v2.4h-2.4zM256.4 52.1h2.4v2.4h-2.4zM261.6 53.4h2.4v2.4h-2.4zM264.1 56.9h2.4v2.4h-2.4zM266.8 58.6h2.4v2.4h-2.4zM268.1 59.5h2.4v2.4h-2.4zM270.2 63.4h2.4v2.4h-2.4zM270.6 64.1h2.4v2.4h-2.4zM275.8 67.2h2.4v2.4h-2.4zM277.1 69.4h2.4v2.4h-2.4zM279.4 73.9h2.4v2.4h-2.4zM284.1 79.8h2.4v2.4h-2.4zM292.3 95.5h2.4v2.4h-2.4zM292.9 97.4h2.4v2.4h-2.4zM293.1 103.5h2.4v2.4h-2.4z"/>
+  <path class="i-fill-off" d="M69.5 89.7h2.4v2.4h-2.4zM71.1 92.3h2.4v2.4h-2.4zM72.6 94.9h2.4v2.4h-2.4zM73.1 97.4h2.4v2.4h-2.4zM73 101h2.4v2.4h-2.4zM75.7 108.1h2.4v2.4h-2.4zM76.5 110h2.4v2.4h-2.4zM76.9 116.8h2.4v2.4h-2.4zM76.5 122.1h2.4v2.4h-2.4zM75 124h2.4v2.4h-2.4zM74.5 124.1h2.4v2.4h-2.4zM74.1 125.9h2.4v2.4h-2.4zM73.8 126.4h2.4v2.4h-2.4zM72.6 125.7h2.4v2.4h-2.4zM70.6 125.3h2.4v2.4h-2.4zM68.4 126.5h2.4v2.4h-2.4zM68 123.3h2.4v2.4h-2.4zM67.4 122.3h2.4v2.4h-2.4zM66.2 120.2h2.4v2.4h-2.4zM65.8 118.5h2.4v2.4h-2.4zM64.9 115.3h2.4v2.4h-2.4zM63.9 113.3h2.4v2.4h-2.4zM62.7 112h2.4v2.4h-2.4zM63.1 107h2.4v2.4h-2.4zM63.1 104h2.4v2.4h-2.4zM61.1 103.3h2.4v2.4h-2.4zM62.2 100.3h2.4v2.4h-2.4zM61.2 100.3h2.4v2.4h-2.4zM62.6 94.2h2.4v2.4h-2.4zM62.8 92.7h2.4v2.4h-2.4zM61.6 89.2h2.4v2.4h-2.4zM62.3 86.3h2.4v2.4h-2.4zM64.4 85.2h2.4v2.4h-2.4zM63.5 82.2h2.4v2.4h-2.4zM66.1 76.1h2.4v2.4h-2.4zM68.9 71.2h2.4v2.4h-2.4zM69.5 69h2.4v2.4h-2.4zM69.5 66.5h2.4v2.4h-2.4zM71.9 63.6h2.4v2.4h-2.4zM73.5 60.2h2.4v2.4h-2.4zM79 58.2h2.4v2.4h-2.4zM82.2 52.8h2.4v2.4h-2.4zM84.9 50.4h2.4v2.4h-2.4zM87.2 51.5h2.4v2.4h-2.4zM93.4 49.9h2.4v2.4h-2.4zM101.2 48.5h2.4v2.4h-2.4zM102.1 47.7h2.4v2.4h-2.4zM104.8 49.9h2.4v2.4h-2.4zM108.1 50.2h2.4v2.4h-2.4zM110.4 50.9h2.4v2.4h-2.4zM112.8 51h2.4v2.4h-2.4zM117.3 54.6h2.4v2.4h-2.4zM120 56.1h2.4v2.4h-2.4zM122.5 57.9h2.4v2.4h-2.4zM124.9 61h2.4v2.4h-2.4zM126.3 62.2h2.4v2.4h-2.4zM139.3 80.7h2.4v2.4h-2.4zM139.2 81.1h2.4v2.4h-2.4zM142.8 84.2h2.4v2.4h-2.4zM144.6 88.9h2.4v2.4h-2.4zM145.7 90.8h2.4v2.4h-2.4zM147.3 98.5h2.4v2.4h-2.4zM149.3 102.6h2.4v2.4h-2.4zM149.6 106.3h2.4v2.4h-2.4zM150.7 109.5h2.4v2.4h-2.4zM149.7 110h2.4v2.4h-2.4zM149.7 112.9h2.4v2.4h-2.4zM150.3 116.3h2.4v2.4h-2.4zM150.3 123.4h2.4v2.4h-2.4zM149.4 123h2.4v2.4h-2.4zM149.6 125.4h2.4v2.4h-2.4zM148.8 125.6h2.4v2.4h-2.4zM147.8 125.7h2.4v2.4h-2.4zM145.8 128.1h2.4v2.4h-2.4zM145 125.5h2.4v2.4h-2.4zM144.3 127.1h2.4v2.4h-2.4zM143.9 124.3h2.4v2.4h-2.4zM142.5 125.3h2.4v2.4h-2.4zM141.9 124.6h2.4v2.4h-2.4zM140.6 122.8h2.4v2.4h-2.4zM139.3 119.3h2.4v2.4h-2.4zM139.3 116.1h2.4v2.4h-2.4zM138.3 115.6h2.4v2.4h-2.4zM136.4 107.9h2.4v2.4h-2.4zM137.4 104.6h2.4v2.4h-2.4zM136.7 101.9h2.4v2.4h-2.4zM137.2 97.3h2.4v2.4h-2.4zM136.7 96.4h2.4v2.4h-2.4zM137.5 92.7h2.4v2.4h-2.4zM136.9 91.4h2.4v2.4h-2.4zM138.6 84.4h2.4v2.4h-2.4zM142.5 71.3h2.4v2.4h-2.4zM144.2 68.5h2.4v2.4h-2.4zM146.3 67.4h2.4v2.4h-2.4zM145.3 64.1h2.4v2.4h-2.4zM147.8 64.1h2.4v2.4h-2.4zM148.6 59.6h2.4v2.4h-2.4zM151.9 59.6h2.4v2.4h-2.4zM153.1 58.7h2.4v2.4h-2.4zM154.2 55.7h2.4v2.4h-2.4zM157.1 53.5h2.4v2.4h-2.4zM159.6 54.8h2.4v2.4h-2.4zM160 50.8h2.4v2.4h-2.4zM162.6 52.6h2.4v2.4h-2.4zM163.9 51.1h2.4v2.4h-2.4zM164.3 50h2.4v2.4h-2.4zM169.7 49h2.4v2.4h-2.4zM175.2 51.3h2.4v2.4h-2.4zM176.1 49.9h2.4v2.4h-2.4zM182.1 51.2h2.4v2.4h-2.4zM184.3 49.8h2.4v2.4h-2.4zM186 50.3h2.4v2.4h-2.4zM194.3 57.8h2.4v2.4h-2.4zM196.6 60.7h2.4v2.4h-2.4zM199.6 60.1h2.4v2.4h-2.4zM201.3 62.9h2.4v2.4h-2.4zM203.9 64h2.4v2.4h-2.4zM204.8 68.5h2.4v2.4h-2.4zM206.7 67.6h2.4v2.4h-2.4zM210.4 73h2.4v2.4h-2.4zM211.7 73.2h2.4v2.4h-2.4zM211.9 77.4h2.4v2.4h-2.4zM217.5 86.6h2.4v2.4h-2.4zM218.7 90.3h2.4v2.4h-2.4zM218.9 91.3h2.4v2.4h-2.4zM220.8 93.7h2.4v2.4h-2.4zM223.2 99.2h2.4v2.4h-2.4zM224.1 103h2.4v2.4h-2.4zM225.7 113.8h2.4v2.4h-2.4zM226.1 118.5h2.4v2.4h-2.4zM225.8 122.1h2.4v2.4h-2.4zM225.7 122.4h2.4v2.4h-2.4zM224.8 123h2.4v2.4h-2.4zM224.4 124.9h2.4v2.4h-2.4zM222.9 122.8h2.4v2.4h-2.4zM223.4 125.4h2.4v2.4h-2.4zM223.5 127.4h2.4v2.4h-2.4zM222.7 126.7h2.4v2.4h-2.4zM222.1 128.2h2.4v2.4h-2.4zM220.6 124.8h2.4v2.4h-2.4zM218.3 123.5h2.4v2.4h-2.4zM217.9 125.5h2.4v2.4h-2.4zM216.1 124.4h2.4v2.4h-2.4zM212.6 113.4h2.4v2.4h-2.4zM212.3 105.8h2.4v2.4h-2.4zM212.2 103.9h2.4v2.4h-2.4zM210.9 102.2h2.4v2.4h-2.4zM212.1 99.3h2.4v2.4h-2.4zM210.9 94.3h2.4v2.4h-2.4zM213 91.4h2.4v2.4h-2.4zM211.6 90.6h2.4v2.4h-2.4zM212.7 87.5h2.4v2.4h-2.4zM214.2 85h2.4v2.4h-2.4zM215.1 74.5h2.4v2.4h-2.4zM216.2 72.3h2.4v2.4h-2.4zM221.2 66.5h2.4v2.4h-2.4zM222.6 60.9h2.4v2.4h-2.4zM224.4 60.2h2.4v2.4h-2.4zM226.6 58.1h2.4v2.4h-2.4zM228.2 56.7h2.4v2.4h-2.4zM236.4 52h2.4v2.4h-2.4zM241.1 51.9h2.4v2.4h-2.4zM243 51.6h2.4v2.4h-2.4zM245.3 51.6h2.4v2.4h-2.4zM247.6 48.9h2.4v2.4h-2.4zM250 50.2h2.4v2.4h-2.4zM254.8 48.8h2.4v2.4h-2.4zM266.5 54.7h2.4v2.4h-2.4zM271 57.8h2.4v2.4h-2.4zM275.3 61.7h2.4v2.4h-2.4zM275.5 62.6h2.4v2.4h-2.4zM277.9 65.7h2.4v2.4h-2.4zM282.3 68.4h2.4v2.4h-2.4zM283.6 70.5h2.4v2.4h-2.4zM284.2 71.3h2.4v2.4h-2.4zM286 74.3h2.4v2.4h-2.4zM286.3 76.9h2.4v2.4h-2.4zM287.9 79.2h2.4v2.4h-2.4zM290.8 85h2.4v2.4h-2.4zM291.6 87h2.4v2.4h-2.4z"/>
+  <path class="i-thin" d="M30 170L304 170M298.6 167.4L304 170L298.6 172.6"/>
+  <text x="304" y="164" text-anchor="end" class="i-strong">t</text>
+  <rect class="i-frame" x="30" y="182" width="8" height="10"/>
+  <text x="43" y="191" >images à cadence fixe</text>
+  <rect class="i-fill-on" x="196" y="185" width="4" height="4"/>
+  <rect class="i-fill-off" x="202" y="185" width="4" height="4"/>
+  <text x="211" y="191" >événements</text>
+            </svg>
+            <h3>Caméras événementielles</h3>
+            <p>Chaque pixel signale de façon asynchrone ses changements de luminosité, avec une très haute résolution temporelle, au lieu de produire des images à cadence fixe.</p>
+          </li>
+          <li class="sensor">
+            <svg class="sensor-diagram" viewBox="0 0 320 200" role="img" aria-label="Schéma : un cube de données formé d’images empilées par longueur d’onde ; un même pixel traversant toutes les bandes donne une courbe de réflectance en fonction de la longueur d’onde.">
+  <rect class="i-band" x="88" y="10" width="84" height="84" style="fill:#8e2a2a"/><rect class="i-band" x="79" y="17" width="84" height="84" style="fill:#de3f26"/><rect class="i-band" x="70" y="24" width="84" height="84" style="fill:#ee8a1f"/><rect class="i-band" x="61" y="31" width="84" height="84" style="fill:#e0c21f"/><rect class="i-band" x="52" y="38" width="84" height="84" style="fill:#6dbb2a"/><rect class="i-band" x="43" y="45" width="84" height="84" style="fill:#1fae7a"/><rect class="i-band" x="34" y="52" width="84" height="84" style="fill:#1f9fd0"/><rect class="i-band" x="25" y="59" width="84" height="84" style="fill:#2f5fe0"/><rect class="i-band" x="16" y="66" width="84" height="84" style="fill:#5a2bd0"/>
+  <path class="i-pixel-line" d="M46 103L118 47"/>
+  <rect class="i-pixel" x="42" y="99" width="8" height="8"/>
+  <path class="i-thin" d="M106 160L170 110M164.1 111.3L170 110L167.3 115.4"/>
+  <text x="176" y="108" class="i-strong">λ</text>
+  <text x="16" y="170" >cube (x, y, λ)</text>
+  <path class="i-thin" d="M206 28V150H312"/>
+  <path class="i-line" d="M212 134.3L223 131L234 127.6L245 111.9L256 116.4L267 120.9L278 123.1L289 80.6L300 53.7"/>
+  <circle class="i-band" cx="212" cy="134.3" r="3.5" style="fill:#5a2bd0"/><circle class="i-band" cx="223" cy="131" r="3.5" style="fill:#2f5fe0"/><circle class="i-band" cx="234" cy="127.6" r="3.5" style="fill:#1f9fd0"/><circle class="i-band" cx="245" cy="111.9" r="3.5" style="fill:#1fae7a"/><circle class="i-band" cx="256" cy="116.4" r="3.5" style="fill:#6dbb2a"/><circle class="i-band" cx="267" cy="120.9" r="3.5" style="fill:#e0c21f"/><circle class="i-band" cx="278" cy="123.1" r="3.5" style="fill:#ee8a1f"/><circle class="i-band" cx="289" cy="80.6" r="3.5" style="fill:#de3f26"/><circle class="i-band" cx="300" cy="53.7" r="3.5" style="fill:#8e2a2a"/>
+  <text x="206" y="20" class="i-strong">réflectance</text>
+  <text x="312" y="166" text-anchor="end" class="i-strong">λ</text>
+  <text x="258" y="192" text-anchor="middle">spectre d’un pixel</text>
+            </svg>
+            <h3>Caméras hyperspectrales temps-réel</h3>
+            <p>Elles acquièrent pour chaque pixel un spectre en de nombreuses bandes étroites, qui renseigne sur les matériaux observés, à une cadence compatible avec la vidéo.</p>
+          </li>
+          <li class="sensor-note">
+            <p class="label">Et leur combinaison</p>
+            <p class="lead">La collaboration entre capteurs interroge enfin sur l’usage de l’information d’une modalité pour optimiser le traitement d’une autre.</p>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="section" id="objectifs">
+      <div class="container section-grid">
+        <h2>Objectifs du GT</h2>
+        <div class="prose">
+          <p class="lead">L’objectif premier de ce GT est de fédérer une animation scientifique à la frontière entre l’image et ses applications en robotique.</p>
+          <p>Les thématiques abordées seront à l’interface entre le GdR IASIS et le GdR Robotique. Pour ce faire, ce GT proposera des journées inter-GdR spécifiques sur les traitements des images tenant compte de la typologie des capteurs. Il produira également un article collectif de type «&nbsp;survey&nbsp;» sur l’analyse et les traitements des images dédiés aux capteurs émergents.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="actualites">
+      <div class="container section-grid">
+        <h2>Actualités</h2>
+        <ul class="news-list">
+          <li class="news-item">
+            <time datetime="2026-11-09">9 novembre 2026</time>
+            <h3><a href="2026/11/09/session-complementaire-visioconference-04-12-2026/index.html">Session complémentaire en visioconférence 04/12/2026</a></h3>
+            <span class="news-arrow" aria-hidden="true">→</span>
+          </li>
+          <li class="news-item">
+            <time datetime="2026-04-09">9 avril 2026</time>
+            <h3><a href="2026/04/09/journee-inter-gdr-iasis-et-robotique-06-10-2026/index.html">Journée inter GdR IASIS et Robotique 06/10/2026</a></h3>
+            <span class="news-arrow" aria-hidden="true">→</span>
+          </li>
+          <li class="news-item">
+            <time datetime="2024-05-17">17 mai 2024</time>
+            <h3><a href="2024/05/17/journee-inter-gdr-iasis-et-robotique-04-07-2024/index.html">Journée inter GdR IASIS et Robotique 04/07/2024</a></h3>
+            <span class="news-arrow" aria-hidden="true">→</span>
+          </li>
+          <li class="news-item">
+            <time datetime="2024-05-03">3 mai 2024</time>
+            <h3><a href="2024/05/03/creation-du-gt/index.html">Création du GT</a></h3>
+            <span class="news-arrow" aria-hidden="true">→</span>
+          </li>
+        </ul>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <span>GT Vision guidée par les capteurs émergents</span>
+      <span>Groupe de travail du <a href="https://gdr-iasis.cnrs.fr/" target="_blank" rel="noopener">GdR IASIS</a></span>
+    </div>
+  </footer>
+</body>
+</html>
