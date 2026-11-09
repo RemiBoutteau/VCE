@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>GT Vision guidée par les capteurs émergents – GdR IASIS</title>
-  <meta name="description" content="Groupe de travail du GdR IASIS à la frontière entre l’image et la robotique : caméras événementielles, plénoptiques, omnidirectionnelles, hyperspectrales et à temps de vol.">
+  <meta name="description" content="Groupe de travail du GdR IASIS à la frontière entre l’image et la robotique : caméras événementielles, plénoptiques, omnidirectionnelles, hyperspectrales et à temps de vol, capteurs bio-inspirés à large champ.">
   <meta name="theme-color" content="#f7f6f2" media="(prefers-color-scheme: light)">
   <meta name="theme-color" content="#0f1217" media="(prefers-color-scheme: dark)">
   <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
@@ -46,7 +46,7 @@
         </div>
         <ul class="people" aria-label="Responsables du groupe de travail">
           <li><strong>Guillaume Caron</strong><span>CNRS-AIST JRL / UPJV MIS</span></li>
-          <li><strong>Franck Ruffier</strong><span>CNRS-AMU ISM</span></li>
+          <li><strong>Franck Ruffier</strong><span>Lab-STICC, CNRS, ENSTA|IP Paris, Brest</span></li>
           <li><strong>Rémi Boutteau</strong><span>Université de Rouen Normandie LITIS</span></li>
         </ul>
       </div>
@@ -56,7 +56,7 @@
       <div class="container section-grid">
         <h2>Motivation</h2>
         <div class="prose">
-          <p class="lead">De nouveaux types de caméras comme les caméras à temps de vol, les caméras plénoptiques, les caméras omnidirectionnelles, les caméras événementielles, les caméras hyperspectrales temps-réel ont vu le jour.</p>
+          <p class="lead">De nouveaux types de caméras comme les caméras à temps de vol, les caméras plénoptiques, les caméras omnidirectionnelles, les caméras événementielles, les caméras hyperspectrales temps-réel, ainsi que des capteurs à large champ et à faible résolution inspirés de la biologie, ont vu le jour.</p>
           <p>Ces nouvelles caméras et les nouveaux usages qu’elles laissent entrevoir sont le fruit de progrès d’intégrations techniques et technologiques récents. L’usage de ces capteurs fait émerger de nombreuses questions en vision par ordinateur sur les outils et les méthodes associées.</p>
           <p>En premier lieu, se pose le problème de la modélisation et de l’étalonnage. Ce thème a été profondément traité pour les caméras classiques, voire également les caméras omnidirectionnelles, avec des résultats significatifs, des outils performants et largement utilisés. Néanmoins, l’amélioration de ces modélisations géométriques et/ou photométriques, ainsi que pour le développement d’outils de mise en œuvre rapides, précis et robustes représentent autant de défis scientifiques. De même, la nature hétérogène des informations mesurées nécessite le développement de principes spécifiques pour l’étalonnage extrinsèque des caméras.</p>
           <p>Du point de vue du traitement de l’information, de nombreuses pistes de recherche sont également à explorer pour l’extraction et la caractérisation de ces primitives, leur mise en correspondance à la fois par des approches basées modèles et des approches basées apprentissage automatique. Une autre question intéressante concerne les traitements précoces qu’il est possible voire souhaitable d’effectuer au plus proche du capteur. La collaboration entre capteurs interroge enfin sur l’usage de l’information d’une modalité pour optimiser le traitement d’une autre.</p>
@@ -163,9 +163,21 @@
             <h3>Caméras hyperspectrales temps-réel</h3>
             <p>Elles acquièrent pour chaque pixel un spectre en de nombreuses bandes étroites, qui renseigne sur les matériaux observés, à une cadence compatible avec la vidéo.</p>
           </li>
-          <li class="sensor-note">
-            <p class="label">Et leur combinaison</p>
-            <p class="lead">La collaboration entre capteurs interroge enfin sur l’usage de l’information d’une modalité pour optimiser le traitement d’une autre.</p>
+          <li class="sensor">
+            <svg class="sensor-diagram" viewBox="0 0 320 200" role="img" aria-label="Schéma : un œil composé dont les facettes, réparties sur un dôme, regardent chacune dans une direction différente et couvrent un très large champ, ce qui donne une image à faible résolution de quelques dizaines de pixels.">
+  <path class="i-on" d="M75.9 66.5L86.5 6.4"/><path class="i-line-thin" d="M84.9 69.4L111.6 14.6"/><path class="i-line-thin" d="M92.8 74.7L133.6 29.4"/><path class="i-line-thin" d="M98.8 82L150.6 49.7"/><path class="i-line-thin" d="M102.7 90.6L161.3 73.8"/><path class="i-line-thin" d="M104 100L165 100"/><path class="i-line-thin" d="M102.7 109.4L161.3 126.2"/><path class="i-line-thin" d="M98.8 118L150.6 150.3"/><path class="i-line-thin" d="M92.8 125.3L133.6 170.6"/><path class="i-line-thin" d="M84.9 130.6L111.6 185.4"/><path class="i-on" d="M75.9 133.5L86.5 193.6"/>
+  <path class="i-guide" d="M86.5 6.4A95 95 0 0 1 86.5 193.6"/>
+  <path class="i-line" d="M70 66A34 34 0 0 1 70 134Z"/>
+  <circle class="i-lens" cx="75.9" cy="66.5" r="4"/><circle class="i-lens" cx="84.9" cy="69.4" r="4"/><circle class="i-lens" cx="92.8" cy="74.7" r="4"/><circle class="i-lens" cx="98.8" cy="82" r="4"/><circle class="i-lens" cx="102.7" cy="90.6" r="4"/><circle class="i-lens" cx="104" cy="100" r="4"/><circle class="i-lens" cx="102.7" cy="109.4" r="4"/><circle class="i-lens" cx="98.8" cy="118" r="4"/><circle class="i-lens" cx="92.8" cy="125.3" r="4"/><circle class="i-lens" cx="84.9" cy="130.6" r="4"/><circle class="i-lens" cx="75.9" cy="133.5" r="4"/>
+  <text x="12" y="190">œil composé</text>
+  <path class="i-thin" d="M170 100L188 100M183 97.5L188 100L183 102.5"/>
+  <rect class="i-fill-ink" x="194" y="48" width="14" height="14" opacity="0.1"/><rect class="i-fill-ink" x="208" y="48" width="14" height="14" opacity="0.1"/><rect class="i-fill-ink" x="222" y="48" width="14" height="14" opacity="0.15"/><rect class="i-fill-ink" x="236" y="48" width="14" height="14" opacity="0.15"/><rect class="i-fill-ink" x="250" y="48" width="14" height="14" opacity="0.1"/><rect class="i-fill-ink" x="264" y="48" width="14" height="14" opacity="0.1"/><rect class="i-fill-ink" x="278" y="48" width="14" height="14" opacity="0.15"/><rect class="i-fill-ink" x="292" y="48" width="14" height="14" opacity="0.2"/><rect class="i-fill-ink" x="194" y="62" width="14" height="14" opacity="0.15"/><rect class="i-fill-ink" x="208" y="62" width="14" height="14" opacity="0.2"/><rect class="i-fill-ink" x="222" y="62" width="14" height="14" opacity="0.35"/><rect class="i-fill-ink" x="236" y="62" width="14" height="14" opacity="0.3"/><rect class="i-fill-ink" x="250" y="62" width="14" height="14" opacity="0.15"/><rect class="i-fill-ink" x="264" y="62" width="14" height="14" opacity="0.2"/><rect class="i-fill-ink" x="278" y="62" width="14" height="14" opacity="0.3"/><rect class="i-fill-ink" x="292" y="62" width="14" height="14" opacity="0.35"/><rect class="i-fill-ink" x="194" y="76" width="14" height="14" opacity="0.3"/><rect class="i-fill-ink" x="208" y="76" width="14" height="14" opacity="0.55"/><rect class="i-fill-ink" x="222" y="76" width="14" height="14" opacity="0.7"/><rect class="i-fill-ink" x="236" y="76" width="14" height="14" opacity="0.5"/><rect class="i-fill-ink" x="250" y="76" width="14" height="14" opacity="0.3"/><rect class="i-fill-ink" x="264" y="76" width="14" height="14" opacity="0.45"/><rect class="i-fill-ink" x="278" y="76" width="14" height="14" opacity="0.65"/><rect class="i-fill-ink" x="292" y="76" width="14" height="14" opacity="0.5"/><rect class="i-fill-ink" x="194" y="90" width="14" height="14" opacity="0.6"/><rect class="i-fill-ink" x="208" y="90" width="14" height="14" opacity="0.75"/><rect class="i-fill-ink" x="222" y="90" width="14" height="14" opacity="0.85"/><rect class="i-fill-ink" x="236" y="90" width="14" height="14" opacity="0.7"/><rect class="i-fill-ink" x="250" y="90" width="14" height="14" opacity="0.6"/><rect class="i-fill-ink" x="264" y="90" width="14" height="14" opacity="0.7"/><rect class="i-fill-ink" x="278" y="90" width="14" height="14" opacity="0.85"/><rect class="i-fill-ink" x="292" y="90" width="14" height="14" opacity="0.7"/><rect class="i-fill-ink" x="194" y="104" width="14" height="14" opacity="0.8"/><rect class="i-fill-ink" x="208" y="104" width="14" height="14" opacity="0.9"/><rect class="i-fill-ink" x="222" y="104" width="14" height="14" opacity="0.9"/><rect class="i-fill-ink" x="236" y="104" width="14" height="14" opacity="0.85"/><rect class="i-fill-ink" x="250" y="104" width="14" height="14" opacity="0.8"/><rect class="i-fill-ink" x="264" y="104" width="14" height="14" opacity="0.85"/><rect class="i-fill-ink" x="278" y="104" width="14" height="14" opacity="0.9"/><rect class="i-fill-ink" x="292" y="104" width="14" height="14" opacity="0.85"/>
+  <rect class="i-line-thin" x="194" y="48" width="112" height="70"/>
+  <text x="250" y="134" text-anchor="middle">image à faible résolution</text>
+  <text x="244" y="154" text-anchor="middle" class="i-strong">large champ, peu de pixels</text>
+            </svg>
+            <h3>Capteurs inspirés de la biologie</h3>
+            <p>Inspirés notamment de l’œil composé des insectes, ils associent un très large champ de vision à une faible résolution, ce qui suffit par exemple à mesurer le flux optique pour naviguer, avec très peu de calcul.</p>
           </li>
         </ul>
       </div>
